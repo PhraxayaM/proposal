@@ -1,5 +1,5 @@
-Class roster.
+Event Planner.
 
-Add and remove list of students and classes
+Add and remove a list of events
 
-An easy to use database to keep track of a list of students for different classes. It's useful because it will allow teachers to easily keep track of their students. It's also simple and easy to use
+Event will list times of specific activities that will occur within that event.
