@@ -1,7 +1,18 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Event
+from .models import Event_Item, Event
 # Register your models here.
-admin.site.register(Event)
+
+class EventInline(admin.StackedInline):
+    model = Event_Item
+    extra = 3
+
+class EventAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,  {'fields': ['event_name']}),
+        ('Date information', {'fields': ['event_date']}),
+    ]
+    inlines = [EventInline]
+
+
+admin.site.register(Event, EventAdmin)
