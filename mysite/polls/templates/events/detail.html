@@ -1,1 +1,5 @@
 <h1>{{ event.event_name }}</h1>
+
+{% for item in event.event_item_set.all %}
+    <li>{{ item.item_text }} | Starting at: {{ item.item_time }}</li>
+{% endfor %}
