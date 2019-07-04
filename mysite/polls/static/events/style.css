@@ -15,6 +15,7 @@ ul#eventlist {
   list-style: inside;
   padding-top: 100px;
   font-size:  25px;
+  spacing: 20;
 }
 
 li#eventitems {
