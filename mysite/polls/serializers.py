@@ -10,7 +10,7 @@ class EventItemSerializer(serializers.ModelSerializer):
 
 class EventSerializer(serializers.ModelSerializer):
     items = EventItemSerializer(many=True, read_only=True, required=False)
-    
+
     class Meta:
         model = Event
         fields = "__all__"

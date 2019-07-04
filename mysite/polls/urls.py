@@ -6,7 +6,8 @@ from .views import EventList, EventDetail
 
 app_name = 'polls'
 urlpatterns = [
-    # path('', views.index, name='index'),
-    path("events/", EventList.as_view(), name="event_list"),
-    path('<int:event_id>/', EventDetail.as_view(), name='detail'),
+    path('events/', views.index, name='index'),
+    path('<int:event_id>/', views.detail, name='detail'),
+    # path("events/", views.IndexView.as_view(), name="event_list"),
+    # path('<int:pk>/', views.DetailView.as_view(), name='detail'),
 ]

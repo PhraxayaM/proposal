@@ -13,3 +13,6 @@ class Event_Item(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
     item_text = models.CharField(max_length=200)
     item_time = models.TimeField('Start time')
+
+    class Meta:
+        db_table = "items"
