@@ -2,6 +2,14 @@ li a {
     color: blue;
 }
 
+div#customdiv {
+    text-align: center;
+    list-style: inside;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    font-size:  20px;
+}
+
 h1#eventdetail {
     text-align: center;
     list-style: inside;

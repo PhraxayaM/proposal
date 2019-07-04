@@ -8,15 +8,15 @@
 
     <ul class="menu-area">
       <li><a href="{% url 'polls:index' %}">All Events</a></li>
-      <li><a href="{% url 'polls:create' %}">Add Event</a></li>
     </ul>
   </nav>
 </div>
 
+<div id="customdiv">
+    <form action="{% url 'polls:create'%}" method="post">
+        {% csrf_token %}
+        {{form}}
 
-<h1 id="eventdetail">{{ event.event_name }}</h1>
-
-
-{% for item in event_item %}
-    <li id="eventitems">{{ item.item_text }} | Starting at: {{ item.item_time }}</li>
-{% endfor %}
+        <<input type="submit"  value="create">
+    </form>
+</div>

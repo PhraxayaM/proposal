@@ -2,11 +2,13 @@
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render, redirect
+from django.urls import reverse
 
 from .models import Event, Event_Item
 from .serializers import EventSerializer
+from . import forms
 
 def index(request):
     event_list = Event.objects.order_by('-event_date')[:5]
@@ -23,6 +25,19 @@ def detail(request, event_id):
         'event_item': event_item
     }
     return render(request, 'events/detail.html', context)
+
+def new_event(request):
+    if request.method == 'POST':
+        form = forms.EventForm(request.POST)
+        if form.is_valid():
+            event = Event(event_name=form.cleaned_data["event_name"], event_date=form.cleaned_data["event_date"])
+            event.save()
+            return redirect('polls:index')
+    elif request.method == 'GET':
+        form = forms.EventForm()
+        return render(request, 'events/new_event.html', {'form': form})
+
+
 
 
 
