@@ -1,13 +1,33 @@
-<!-- {% load static %}
+<!-- Template from https://codepen.io/divinector/pen/qgZKYQ -->
 
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}"> -->
 
-{% if event_list %}
-    <ul>
-    {% for event in event_list %}
-    <li><a href="{% url 'polls:detail' event.id %}">{{ event.event_name }}</a></li>
-    {% endfor %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'events/style.css' %}">
+
+<div class="custom-padding">
+  <nav>
+    <div class="logo">Event Planner</div>
+
+    <ul class="menu-area">
+      <li><a href="{% url 'polls:index' %}">All Events</a></li>
+      <li><a href="#">Add Event</a></li>
     </ul>
-{% else %}
-    <p>No events are available.</p>
-{% endif %}
+  </nav>
+</div>
+
+
+<div class="row">
+    <br>
+    <div class="col-sm-6 col-sm-offset-3">
+            {% if event_list %}
+                <ul id="eventlist">
+                {% for event in event_list %}
+                <li><a href="{% url 'polls:detail' event.id %}">{{ event.event_name }}</a></li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>No events are available.</p>
+            {% endif %}
+        </div>
+</div>
